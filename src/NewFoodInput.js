@@ -9,10 +9,12 @@ const NewFoodInput = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addFoodItem(food)
+    if (food !== "") {
+      props.addFoodItem(food)
+    }
     setFood("");
   };
-  
+
   return (
     <form className="food-form" onSubmit={handleSubmit}>
       <input type="text" aria-label="Add a food to the list" value={food} onChange={updateFood} />
